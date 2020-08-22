@@ -2,6 +2,8 @@
 
 ## Commands
 
-### **npm start** starting dev server <br />
+### **npm start**
+Starting dev server
 
-### **npm run build** make production build
+### **npm run build**
+Making production build
