@@ -5,9 +5,9 @@ const Products = ({ items }) => {
   return (
     <ul className="products">
       {items
-        ? items.map(item => (
+        ? items.map((item, index) => (
           <li key={`${item.id}`} className="products__item">
-            <Card item={item} />
+            <Card index={index} item={item} />
           </li>
         ))
         : Array(3)

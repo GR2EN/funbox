@@ -1,19 +1,88 @@
 .card {
+  --primaryColor: #1698d9;
+  $cornerSize: 38px;
+  $bgColor: #f2f2f2;
+  $borderWidth: 4px;
+  $width: 320px;
+  $contentHeight: 480px;
+
+  position: relative;
   width: 320px;
 
+  &--selected {
+    --primaryColor: #d91667;
+
+    .card__content-root {
+      clip-path: polygon(28px 0, 100% 0, 100% 100%, 0 100%, 0 28px);
+    }
+  }
+
+  &--disabled {
+    --primaryColor: #b3b3b3;
+    color: var(--primaryColor);
+
+    pointer-events: none;
+
+    .card__description {
+      color: inherit;
+    }
+
+    .card__weight {
+      color: #fff;
+    }
+
+    .card__image {
+      opacity: 50%;
+    }
+
+    .card__footer {
+      color: #ff6;
+    }
+  }
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $cornerSize;
+    height: $cornerSize;
+    content: "";
+    border-top: 4px solid var(--primaryColor);
+    border-left: 4px solid var(--primaryColor);
+    border-top-left-radius: 12px;
+    clip-path: polygon(33px 0, 0 33px, 0 0);
+  }
+
   &__content {
+
     position: relative;
     height: 480px;
-    padding-top: 16px;
-    padding-right: 16px;
-    padding-bottom: 16px;
-    padding-left: 51px;
     margin-bottom: 14px;
-    background-color: #f2f2f2;
-    border-color: #1698d9;
-    border-style: solid;
-    border-width: 4px;
+    cursor: pointer;
+    background-color: var(--primaryColor);
     border-radius: 12px;
+    clip-path: polygon($cornerSize 0, 100% 0, 100% 100%, 0 100%, 0 $cornerSize);
+
+    &:hover {
+      .card__content-root {
+        clip-path: polygon(28px 0, 100% 0, 100% 100%, 0 100%, 0 28px);
+      }
+    }
+
+    &-root {
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      width: 312px;
+      height: 472px;
+      padding-top: 16px;
+      padding-right: 16px;
+      padding-bottom: 16px;
+      padding-left: 51px;
+      background-color: $bgColor;
+      border-radius: 10px;
+      clip-path: polygon(36px 0, 100% 0, 100% 100%, 0 100%, 0 36px);
+    }
   }
 
   &__image {
@@ -30,12 +99,16 @@
 
   &__link {
     font-weight: 700;
-    color: #1698d9;
+    color: var(--primaryColor);
   }
 
   &__description {
     font-size: 16px;
     color: #666;
+
+    &--selected {
+      color: var(--primaryColor);
+    }
 
     &--small {
       font-size: 14px;
@@ -53,6 +126,7 @@
     margin-bottom: 15px;
     font-size: 24px;
     font-weight: 700;
+    color: inherit;
   }
 
   &__weight {
@@ -67,14 +141,14 @@
     width: 80px;
     height: 80px;
     font-size: 42px;
-    line-height: 22px;
+    line-height: 38px;
     color: #fff;
-    background-color: #1698d9;
+    background-color: var(--primaryColor);
     border-radius: 50%;
 
     &-unit {
       font-size: 21px;
-      line-height: 22px;
+      line-height: 14px;
       color: inherit;
     }
   }
