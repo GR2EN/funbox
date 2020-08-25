@@ -18,14 +18,26 @@ const Card = ({ index, item, disabled: isDisabled }) => {
       type: 'SET_SELECTED',
       payload: !isSelected,
     });
-  }, [isSelected]);
-
-  const handleHover = React.useCallback(() => {
+    
     dispatch({
       type: 'SET_HOVERED',
-      payload: !isHovered,
+      payload: false,
     });
-  }, [isHovered]);
+  }, [isSelected]);
+
+  const onMouseEnter = React.useCallback(() => {
+    dispatch({
+      type: 'SET_HOVERED',
+      payload: true,
+    });
+  });
+  
+  const onMouseLeave = React.useCallback(() => {
+    dispatch({
+      type: 'SET_HOVERED',
+      payload: false,
+    });
+  });
 
   const handleKeyboard = React.useCallback(() => {
     // TODO: implement Tab and Enter/Space handling
@@ -40,8 +52,8 @@ const Card = ({ index, item, disabled: isDisabled }) => {
         className="card__content"
         role="button"
         tabIndex={index}
-        onMouseEnter={handleHover}
-        onMouseLeave={handleHover}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
         onClick={handleSelection}
         onKeyDown={handleKeyboard}>
         <div className="card__content-root">
