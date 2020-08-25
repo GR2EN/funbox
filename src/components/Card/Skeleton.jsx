@@ -3,9 +3,9 @@ import ContentLoader from 'react-content-loader';
 
 const CardSkeleton = () => {
   return (
-    <div className="card">
+    <div className="skeleton">
       <ContentLoader
-        className="card__content"
+        className="skeleton__root"
         speed={2}
         width={320}
         height={480}
@@ -18,7 +18,7 @@ const CardSkeleton = () => {
         <circle cx="203" cy="398" r="42" />
       </ContentLoader>
       <ContentLoader
-        className="card__footer"
+        className="skeleton__footer"
         speed={2}
         width={320}
         height={20}

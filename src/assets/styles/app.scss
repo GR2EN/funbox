@@ -24,3 +24,20 @@
   text-align: center;
   text-shadow: 0 1px 1px #000;
 }
+
+.skeleton {
+  width: 320px;
+  
+  &__root {
+    padding-top: 18px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+    padding-left: 54px;
+    border-radius: 12px;
+    background-color: #f2f2f2;
+  }
+
+  &__footer {
+    margin-top: 14px;
+  }
+}
