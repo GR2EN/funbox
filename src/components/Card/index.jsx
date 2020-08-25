@@ -71,7 +71,10 @@ const Card = ({ index, item, disabled: isDisabled }) => {
           {isSelected
             ? <>{desc}</>
             : <>
-              Чего сидишь? Порадуй котэ, <a href="http://funbox.ru/" className="card__link">купи</a>
+              Чего сидишь? Порадуй котэ, <button
+                type="button"
+                className="card__link"
+                onClick={handleSelection}>купи</button>
             </>}
         </div>)}
     </div>
